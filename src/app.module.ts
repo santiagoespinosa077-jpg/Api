@@ -17,12 +17,13 @@ import { UsersModule } from './users/users.module.js';
       type: 'mssql',
       host: 'localhost',
       username: 'sa',
-      password: 'C@chitas692007',
+      password: 'Passw0rd2024Fuerte',
       database: 'dsm43',
       port: 1433,
       entities:[Tarea],
       synchronize: true,
       options:{
+
         trustServerCertificate: true
       }
     }),
@@ -30,6 +31,7 @@ import { UsersModule } from './users/users.module.js';
       name: 'postgres-connection',
       type: 'postgres',
       host: 'localhost',
+      username: 'postgres',
       password: 'C@chas692007',
       database: 'dsm43',
       port: 5432,
@@ -41,6 +43,7 @@ import { UsersModule } from './users/users.module.js';
       name: 'mariadb-connection',
       type: 'mariadb',
       host: 'localhost',
+      username: 'root',
       password: 'S@ntiago69',
       database: 'dsm43',
       port: 3306,

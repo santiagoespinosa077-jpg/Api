@@ -7,7 +7,9 @@ import { UsersService } from './users.service.js';
 @Module({
   imports: [TypeOrmModule.forFeature([ 
     User 
-  ])],
+  ],"mariadb-connection")
+
+],
   controllers: [UsersController],
   providers: [UsersService],
 })

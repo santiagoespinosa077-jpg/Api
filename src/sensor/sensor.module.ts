@@ -7,7 +7,7 @@ import {Sensor} from './entities/sensor.entity.js';
 @Module({
   imports: [
     TypeOrmModule.forFeature([
-      SensorService
+      Sensor
     ],"postgres-connection")
   ],
   controllers: [SensorController],

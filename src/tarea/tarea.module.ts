@@ -6,11 +6,10 @@ import {TypeOrmModule} from '@nestjs/typeorm';
 
 
 @Module({
-
   imports:[
     TypeOrmModule.forFeature([
       Tarea
-    ],"mssql-connector")
+    ],"mssql-connection")
   ],
   controllers: [TareaController],
   providers: [TareaService],
