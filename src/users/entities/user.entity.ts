@@ -13,8 +13,12 @@ export class User {
   @Column()
   password: string;
 
+  @Column({ nullable: true })
+  location: string;
+
   @Column({ type: 'text' })
   imagen: string;
+
 
   @Column({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
   update: Date;

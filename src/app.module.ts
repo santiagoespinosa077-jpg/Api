@@ -1,4 +1,4 @@
-import { AppController } from './app.controller.js';
+  import { AppController } from './app.controller.js';
 import { AppService } from './app.service.js';
 import { Module } from '@nestjs/common';
 import { Sensor } from './sensor/entities/sensor.entity.js';
@@ -35,7 +35,7 @@ import { UsersModule } from './users/users.module.js';
       password: 'C@chas692007',
       database: 'dsm43',
       port: 5432,
-      entities:[Sensor],
+      entities:[User],
       synchronize: true,
       autoLoadEntities: true
     }),
@@ -47,7 +47,7 @@ import { UsersModule } from './users/users.module.js';
       password: 'S@ntiago69',
       database: 'dsm43',
       port: 3306,
-      entities:[User],
+      entities:[Sensor],
       synchronize: true,
       autoLoadEntities: true
     }),
