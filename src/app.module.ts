@@ -8,6 +8,7 @@ import { TareaModule } from './tarea/tarea.module.js';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { User } from './users/entities/user.entity.js';
 import { UsersModule } from './users/users.module.js';
+import { ProductoModule } from './producto/producto.module.js';
 
 
 @Module({
@@ -53,7 +54,8 @@ import { UsersModule } from './users/users.module.js';
     }),
     UsersModule,
     SensorModule,
-    TareaModule
+    TareaModule,
+    ProductoModule
   ],
   controllers:[AppController],
   providers:[AppService],

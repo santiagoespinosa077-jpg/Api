@@ -5,6 +5,7 @@ import {Tarea} from './entities/tarea.entity.js';
 import {TypeOrmModule} from '@nestjs/typeorm';
 
 
+
 @Module({
   imports:[
     TypeOrmModule.forFeature([
