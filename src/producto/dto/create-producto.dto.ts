@@ -1,62 +1,36 @@
-import{IsString, MinLength, MaxLength, IsNotEmpty, IsOptional, IsEnum} from "class-validator"
+import{IsString, MinLength, MaxLength, IsNotEmpty, IsOptional, IsEnum, IsNumberString} from "class-validator"
 import {EstadoProducto} from '../entities/producto.entity.js'
 
 export class CreateProductoDto {
-	@IsNotEmpty()
-	@IsString()
-	@MaxLength(255)
-  	@MinLength(5)
-	sku: string;
+  @IsString() @IsNotEmpty() @MaxLength(50)
+  sku: string;
 
-	@IsNotEmpty()
-	@IsString()
-	@MaxLength(255)
-  	@MinLength(5)
-	nombre_producto: string;
+  @IsString() @IsNotEmpty() @MaxLength(255)
+  nombre_producto: string;
 
+  @IsString() @IsNotEmpty() @MaxLength(255)
+  categoria: string;
 
-	@IsNotEmpty()
-	@IsString()
-	@MaxLength(255)
-  	@MinLength(5)
-	categoria: string;
+  @IsString() @IsNotEmpty() @MaxLength(255)
+  marca: string;
 
-	@IsNotEmpty()
-	@IsString()
-	@MaxLength(255)
-  	@MinLength(5)
-	marca: string;
+  @IsNumberString()
+  precio: string;
 
-	@IsNotEmpty()
-	@IsString()
-	@MaxLength(255)
-  	@MinLength(1)
-	precio: string;
+  @IsNumberString({ no_symbols: true })
+  existencias: string;
 
-	@IsNotEmpty()
-	@IsString()
-	@MaxLength(255)
-  	@MinLength(1)
-	existencias: string;
+  @IsString() @MaxLength(255)
+  descripcion: string;
 
-	@IsNotEmpty()
-	@IsString()
-	@MaxLength(255)
-  	@MinLength(10)
-	descripcion: string;
+  @IsString() @IsNotEmpty() @MaxLength(255)
+  provedor: string;
 
-	@IsNotEmpty()
-	@IsString()
-	@MaxLength(255)
-  	@MinLength(1)
-	provedor: string;
+  @IsString()
+  imagen: string;
 
-	@IsString()
-	imagen: string;
-
-	@IsEnum(EstadoProducto)
-	@IsOptional()
-	estado: EstadoProducto;
+  @IsEnum(EstadoProducto) @IsOptional()
+  estado: EstadoProducto;
 
 
 }

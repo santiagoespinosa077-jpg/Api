@@ -1,4 +1,4 @@
-  import { AppController } from './app.controller.js';
+import { AppController } from './app.controller.js';
 import { AppService } from './app.service.js';
 import { Module } from '@nestjs/common';
 import { Sensor } from './sensor/entities/sensor.entity.js';
@@ -9,7 +9,10 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { User } from './users/entities/user.entity.js';
 import { UsersModule } from './users/users.module.js';
 import { ProductoModule } from './producto/producto.module.js';
-
+import {Producto} from './producto/entities/producto.entity.js'
+import { MantenimientoModule } from './mantenimiento/mantenimiento.module.js';
+import { InmuebleModule } from './inmueble/inmueble.module.js';
+import {Mantenimiento} from './mantenimiento/entities/mantenimiento.entity.js';
 
 @Module({
   imports: [
@@ -21,10 +24,9 @@ import { ProductoModule } from './producto/producto.module.js';
       password: 'Passw0rd2024Fuerte',
       database: 'dsm43',
       port: 1433,
-      entities:[Tarea],
+      entities:[Tarea, Mantenimiento],
       synchronize: true,
       options:{
-
         trustServerCertificate: true
       }
     }),
@@ -48,14 +50,16 @@ import { ProductoModule } from './producto/producto.module.js';
       password: 'S@ntiago69',
       database: 'dsm43',
       port: 3306,
-      entities:[Sensor],
+      entities:[Sensor,Producto],
       synchronize: true,
       autoLoadEntities: true
     }),
     UsersModule,
     SensorModule,
     TareaModule,
-    ProductoModule
+    ProductoModule,
+    MantenimientoModule,
+    InmuebleModule
   ],
   controllers:[AppController],
   providers:[AppService],

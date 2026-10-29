@@ -1,4 +1,4 @@
-import {Entity, Column, PrimaryGeneratedColumn} from "typeorm";
+import {Entity, Column, PrimaryGeneratedColumn,Index} from "typeorm";
 
 export enum EstadoProducto{
 	bajo="Necesita stock",
@@ -10,7 +10,8 @@ export class Producto{
 	@PrimaryGeneratedColumn()
 	id_producto: number;
 
-	@Column()
+	@Index({unique:true})
+	@Column({ length: 50 })
 	sku: string;
 
 	@Column()
@@ -41,7 +42,7 @@ export class Producto{
 	})
 	estado: EstadoProducto
 
-	@Column({ type: 'text' })
+	@Column({ type: 'longtext' })
   	imagen: string;
 
 }
