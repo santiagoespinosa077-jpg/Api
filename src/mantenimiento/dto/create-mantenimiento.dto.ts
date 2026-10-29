@@ -1,12 +1,6 @@
-import {
-  IsString,
-  IsNotEmpty,
-  MaxLength,
-  IsOptional,
-  IsEnum,
-  IsDateString,
-} from "class-validator";
+import {IsString,IsNotEmpty,MaxLength,IsOptional,IsEnum,IsDateString} from "class-validator";
 import { EstadoMan, Prioridad } from "../entities/mantenimiento.entity.js";
+
 
 export class CreateMantenimientoDto {
   @IsString() @IsNotEmpty() @MaxLength(255)

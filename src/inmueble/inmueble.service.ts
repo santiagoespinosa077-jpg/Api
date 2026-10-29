@@ -1,26 +1,35 @@
 import { Injectable } from '@nestjs/common';
 import { CreateInmuebleDto } from './dto/create-inmueble.dto.js';
 import { UpdateInmuebleDto } from './dto/update-inmueble.dto.js';
+import {Inmueble} from './entities/inmueble.entity.js';
+import { Repository } from 'typeorm';
+import { InjectRepository } from '@nestjs/typeorm';
 
 @Injectable()
 export class InmuebleService {
-  create(createInmuebleDto: CreateInmuebleDto) {
-    return 'This action adds a new inmueble';
+constructor(
+    @InjectRepository(Inmueble,'mssql-connection')
+    private inmuebleRepository:Repository<Inmueble>
+  ){}
+
+  async create(data: CreateInmuebleDto) {
+    const register=this.inmuebleRepository.create(data);
+    return await this.inmuebleRepository.save(register);
   }
 
-  findAll() {
-    return `This action returns all inmueble`;
+  async findAll() {
+    return await this.inmuebleRepository.find();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} inmueble`;
+  async findOne(id_im: number) {
+    return await this.inmuebleRepository.findOneBy({id_im});
   }
 
-  update(id: number, updateInmuebleDto: UpdateInmuebleDto) {
-    return `This action updates a #${id} inmueble`;
+  async update(id_im: number, data: UpdateInmuebleDto) {
+    return await this.inmuebleRepository.update(id_im,data);
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} inmueble`;
+  async remove(id_im: number) {
+    return this.inmuebleRepository.delete(id_im);
   }
 }

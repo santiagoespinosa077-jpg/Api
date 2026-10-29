@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, ValidationPipe } from '@nestjs/common';
 import { InmuebleService } from './inmueble.service.js';
 import { CreateInmuebleDto } from './dto/create-inmueble.dto.js';
 import { UpdateInmuebleDto } from './dto/update-inmueble.dto.js';
@@ -8,8 +8,8 @@ export class InmuebleController {
   constructor(private readonly inmuebleService: InmuebleService) {}
 
   @Post()
-  create(@Body() createInmuebleDto: CreateInmuebleDto) {
-    return this.inmuebleService.create(createInmuebleDto);
+  create(@Body(new ValidationPipe) data: CreateInmuebleDto) {
+    return this.inmuebleService.create(data);
   }
 
   @Get()
@@ -17,18 +17,18 @@ export class InmuebleController {
     return this.inmuebleService.findAll();
   }
 
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.inmuebleService.findOne(+id);
+  @Get(':id_im')
+  findOne(@Param('id_im') id_im: number) {
+    return this.inmuebleService.findOne(id_im);
   }
 
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateInmuebleDto: UpdateInmuebleDto) {
-    return this.inmuebleService.update(+id, updateInmuebleDto);
+  @Patch(':id_im')
+  update(@Param('id_im') id_im: number, @Body() data: UpdateInmuebleDto) {
+    return this.inmuebleService.update(id_im, data);
   }
 
   @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.inmuebleService.remove(+id);
+  remove(@Param('id_im') id_im: number) {
+    return this.inmuebleService.remove(id_im);
   }
 }

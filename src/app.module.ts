@@ -13,6 +13,7 @@ import {Producto} from './producto/entities/producto.entity.js'
 import { MantenimientoModule } from './mantenimiento/mantenimiento.module.js';
 import { InmuebleModule } from './inmueble/inmueble.module.js';
 import {Mantenimiento} from './mantenimiento/entities/mantenimiento.entity.js';
+import {Inmueble} from './inmueble/entities/inmueble.entity.js';
 
 @Module({
   imports: [
@@ -24,7 +25,7 @@ import {Mantenimiento} from './mantenimiento/entities/mantenimiento.entity.js';
       password: 'Passw0rd2024Fuerte',
       database: 'dsm43',
       port: 1433,
-      entities:[Tarea, Mantenimiento],
+      entities:[Tarea, Mantenimiento,Inmueble],
       synchronize: true,
       options:{
         trustServerCertificate: true

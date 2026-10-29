@@ -5,6 +5,7 @@ import { Mantenimiento } from './entities/mantenimiento.entity.js';
 import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
 
+
 @Injectable()
 export class MantenimientoService {
   constructor(
